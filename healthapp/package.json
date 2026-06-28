@@ -8,8 +8,7 @@
     "calculateBmi": "tsx bmiCalculator.ts",
     "calculateExercises": "tsx exerciseCalculator.ts",
     "start": "tsx  index.ts",
-    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\"",
-    "lint": "eslint"
+    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\""
   },
   "keywords": [],
   "author": "",
