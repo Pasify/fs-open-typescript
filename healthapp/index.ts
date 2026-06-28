@@ -3,7 +3,7 @@ import express from "express";
 import { calculateBmi } from "./bmiCalculator.ts";
 import { calculator, type Operation } from "./calculator.ts";
 import { calculateExercise } from "./exerciseCalculator.ts";
-import { error } from "node:console";
+// import { error } from "node:console";
 
 const app = express();
 app.use(express.json());
