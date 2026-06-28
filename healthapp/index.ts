@@ -41,22 +41,27 @@ app.get("/bmi", (req, res) => {
 });
 
 app.post("/calculate", (req, res) => {
-  const { value1, value2, op } = req.body;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { value1, value2, op } = req.body as {
+    value1: unknown;
+    value2: unknown;
+    op: unknown;
+  };
+
   if (!value1 || isNaN(Number(value1))) {
     res.status(400).send({ error: "..." });
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  // const operation = op as Operation;
   const result = calculator(Number(value1), Number(value2), op as Operation);
   res.send({ result });
   console.log(result);
 });
 
 app.post("/exercises", (req, res) => {
-  const { daily_exercises, target } = req.body;
+  const { daily_exercises, target } = req.body as {
+    daily_exercises: unknown;
+    target: unknown;
+  };
   if (!daily_exercises || !target) {
     res.status(400).json({ error: "parameters missing" });
     return;
@@ -71,7 +76,7 @@ app.post("/exercises", (req, res) => {
     return;
   }
 
-  const result = calculateExercise(target, daily_exercises);
+  const result = calculateExercise(target, daily_exercises as number[]);
   res.status(200).json(result);
 });
 const PORT = 3000;

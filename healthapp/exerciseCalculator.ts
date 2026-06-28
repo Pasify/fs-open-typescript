@@ -23,7 +23,7 @@ export function calculateExercise(
     dailyExerciseHours.reduce((acc, currVal) => acc + currVal, 0) /
     periodLength;
   const success: boolean = average >= targetExercise;
-  let rating: number = success ? 3 : average >= targetExercise * 0.8 ? 2 : 1;
+  const rating: number = success ? 3 : average >= targetExercise * 0.8 ? 2 : 1;
 
   const description: Record<number, RatingDescription> = {
     1: "Needs improvement",
